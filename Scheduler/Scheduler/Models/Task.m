@@ -7,23 +7,17 @@
 //
 
 #import "Task.h"
-
-@interface Task ()
-
-@property (nonatomic, strong) NSString *name;
-@property (nonatomic, strong) NSNumber *coresRequired;
-@property (nonatomic, strong) NSNumber *executionTime;
-
-@end
+#import "Resource.h"
 
 @implementation Task
 
-- (instancetype)initWithName:(NSString *)name coresRequired:(NSNumber *)coresRequired executionTime:(NSNumber *)executionTime {
+- (instancetype)initWithName:(NSString *)name coresRequired:(NSNumber *)coresRequired executionTime:(NSNumber *)executionTime parentTasks:(NSArray *)parentTasks {
     self = [super init];
     if (self) {
         _name = name;
         _coresRequired = coresRequired;
         _executionTime = executionTime;
+        _parentTasks = parentTasks;
     }
     
     return self;
@@ -35,6 +29,21 @@
         if ([self.name isEqualToString:cmp.name]) {
             return YES;
         }
+    }
+    
+    return NO;
+}
+
+- (BOOL)isFinished {
+    return self.remainingExecutionTime.integerValue == 0;
+}
+
+- (BOOL)tick {
+    NSInteger remainingTime = self.remainingExecutionTime.integerValue;
+    remainingTime--;
+    self.remainingExecutionTime = @(remainingTime);
+    if (remainingTime == 0) {
+        return YES;
     }
     
     return NO;

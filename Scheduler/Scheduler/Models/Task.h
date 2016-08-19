@@ -8,8 +8,19 @@
 
 #import <Foundation/Foundation.h>
 
+@class Resource;
+
 @interface Task : NSObject
 
-- (instancetype)initWithName:(NSString *)name coresRequired:(NSNumber *)coresRequired executionTime:(NSNumber *)executionTime;
+@property (nonatomic, strong) NSString *name;
+@property (nonatomic, strong) NSNumber *coresRequired;
+@property (nonatomic, strong) NSNumber *remainingExecutionTime;
+@property (nonatomic, strong) NSNumber *executionTime;
+@property (nonatomic, strong) Resource *assignedResource;
+@property (nonatomic, strong) NSArray<NSString *> *parentTasks;
+
+- (instancetype)initWithName:(NSString *)name coresRequired:(NSNumber *)coresRequired executionTime:(NSNumber *)executionTime parentTasks:(NSArray *)parentTasks;
+- (BOOL)isFinished;
+- (BOOL)tick;
 
 @end
