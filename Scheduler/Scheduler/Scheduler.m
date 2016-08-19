@@ -7,7 +7,7 @@
 //
 
 #import "Scheduler.h"
-
+#import "Parser.h"
 #import "Task.h"
 #import "Resource.h"
 
@@ -16,30 +16,54 @@
 
 @interface Scheduler ()
 
-@property (nonatomic, strong) NSArray<Task *> *tasks;
+@property (nonatomic, strong) NSMutableArray<Task *> *tasks;
+@property (nonatomic, strong) NSDictionary<NSString*,Task*> *tasksByName;
 @property (nonatomic, strong) NSArray<Resource *>*resources;
 
 @end
 
 @implementation Scheduler
 
-- (instancetype)init {
+- (instancetype)initWithTasks:(NSString *)tasks resources:(NSString *)resources  {
     self = [super init];
     if (self) {
-        [self readInputs];
+        Parser *p = [[Parser alloc] init];
+        _tasks = [p parseTasks:tasks];
+        NSMutableDictionary *tasksByName = [NSMutableDictionary new];
+        for (Task *t in _tasks) {
+            tasksByName[t.name] = t;
+        }
+        _tasksByName = tasksByName;
+        
+        _resources = [p parseResources:resources];
+        
+        dispatch_queue_t runLoop = dispatch_queue_create("runLoop", DISPATCH_QUEUE_CONCURRENT);
+        dispatch_async(runLoop, ^{
+            [self runLoop];
+        });
     }
     
     return self;
 }
 
-- (void)readInputs {
-    NSString *inputsPath = [[NSBundle mainBundle] bundlePath];
-    NSDirectoryEnumerator *enumerator = [[NSFileManager defaultManager] enumeratorAtPath:inputsPath];
-    NSString *filePath = enumerator.nextObject;
-    while (filePath != nil) {
-        NSLog(@"filepath: %@", filePath);
-        filePath = enumerator.nextObject;
+- (void)runLoop {
+    while (self.tasks.count > 0) {
+        for (Resource *r in self.resources) {
+            [r tick];
+        }
+        
+        for (NSInteger i = self.tasks.count - 1; i >= 0; i--) {
+            Task *t = self.tasks[i];
+            for (Resource *r in self.resources) {
+                if (r.availableCores >= t.coresRequired.integerValue) {
+                    [r addTask:t];
+                    [self.tasks removeObjectAtIndex[i]];
+                    break;
+                }
+            }
+        }
     }
 }
+
 
 @end

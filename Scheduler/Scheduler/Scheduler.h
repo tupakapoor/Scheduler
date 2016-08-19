@@ -11,5 +11,6 @@
 
 @interface Scheduler : NSObject
 
+- (instancetype)initWithTasks:(NSString *)tasks resources:(NSString *)resources;
 
 @end
