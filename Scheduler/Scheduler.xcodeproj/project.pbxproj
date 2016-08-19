@@ -17,6 +17,8 @@
 		BC0D6F901D620E19006F8B09 /* SchedulerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BC0D6F8F1D620E19006F8B09 /* SchedulerTests.m */; };
 		BC0D6F9C1D620E84006F8B09 /* Scheduler.m in Sources */ = {isa = PBXBuildFile; fileRef = BC0D6F9B1D620E84006F8B09 /* Scheduler.m */; };
 		BC0D6F9D1D620E84006F8B09 /* Scheduler.m in Sources */ = {isa = PBXBuildFile; fileRef = BC0D6F9B1D620E84006F8B09 /* Scheduler.m */; };
+		BC0D6FAF1D62DE95006F8B09 /* Parser.m in Sources */ = {isa = PBXBuildFile; fileRef = BC0D6FAE1D62DE95006F8B09 /* Parser.m */; };
+		BC0D6FB01D62DE95006F8B09 /* Parser.m in Sources */ = {isa = PBXBuildFile; fileRef = BC0D6FAE1D62DE95006F8B09 /* Parser.m */; };
 		BCFB3BD51D6214BC000EBD70 /* Task.m in Sources */ = {isa = PBXBuildFile; fileRef = BCFB3BD41D6214BC000EBD70 /* Task.m */; };
 		BCFB3BD61D6214BC000EBD70 /* Task.m in Sources */ = {isa = PBXBuildFile; fileRef = BCFB3BD41D6214BC000EBD70 /* Task.m */; };
 		BCFB3BD91D6215B1000EBD70 /* Resource.m in Sources */ = {isa = PBXBuildFile; fileRef = BCFB3BD81D6215B1000EBD70 /* Resource.m */; };
@@ -51,6 +53,8 @@
 		BC0D6F911D620E19006F8B09 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BC0D6F9A1D620E84006F8B09 /* Scheduler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Scheduler.h; sourceTree = "<group>"; };
 		BC0D6F9B1D620E84006F8B09 /* Scheduler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Scheduler.m; sourceTree = "<group>"; };
+		BC0D6FAD1D62DE95006F8B09 /* Parser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Parser.h; sourceTree = "<group>"; };
+		BC0D6FAE1D62DE95006F8B09 /* Parser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Parser.m; sourceTree = "<group>"; };
 		BCFB3BD31D6214BC000EBD70 /* Task.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Task.h; sourceTree = "<group>"; };
 		BCFB3BD41D6214BC000EBD70 /* Task.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Task.m; sourceTree = "<group>"; };
 		BCFB3BD71D6215B1000EBD70 /* Resource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Resource.h; sourceTree = "<group>"; };
@@ -120,6 +124,8 @@
 				BC0D6F751D620E18006F8B09 /* Supporting Files */,
 				BC0D6F9A1D620E84006F8B09 /* Scheduler.h */,
 				BC0D6F9B1D620E84006F8B09 /* Scheduler.m */,
+				BC0D6FAD1D62DE95006F8B09 /* Parser.h */,
+				BC0D6FAE1D62DE95006F8B09 /* Parser.m */,
 			);
 			path = Scheduler;
 			sourceTree = "<group>";
@@ -317,6 +323,7 @@
 				BC0D6F7D1D620E19006F8B09 /* ViewController.m in Sources */,
 				BC0D6F9C1D620E84006F8B09 /* Scheduler.m in Sources */,
 				BC0D6F7A1D620E19006F8B09 /* AppDelegate.m in Sources */,
+				BC0D6FAF1D62DE95006F8B09 /* Parser.m in Sources */,
 				BC0D6F771D620E18006F8B09 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -329,6 +336,7 @@
 				BCFB3BDA1D6215B1000EBD70 /* Resource.m in Sources */,
 				BCFB3BD61D6214BC000EBD70 /* Task.m in Sources */,
 				BC0D6F9D1D620E84006F8B09 /* Scheduler.m in Sources */,
+				BC0D6FB01D62DE95006F8B09 /* Parser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

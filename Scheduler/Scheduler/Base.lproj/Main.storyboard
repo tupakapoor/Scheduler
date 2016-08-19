@@ -24,6 +24,17 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="128" id="Z7v-w7-hgx"/>
                                 </constraints>
+                                <string key="text">task1: 
+  cores_required: 2
+  execution_time: 100
+task2: 
+  cores_required: 1
+  execution_time: 200
+  parent_tasks: task1
+task3:
+  cores_required: 4
+  execution_time: 50
+  parent_tasks: "task1, task2"</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -43,6 +54,9 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="128" id="DoJ-p6-nlJ"/>
                                 </constraints>
+                                <string key="text">compute1: 2
+compute2: 2
+compute3: 6</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
